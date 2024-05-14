@@ -1,31 +1,37 @@
-import { useState, useEffect, ReactElement } from 'react';
+import { Component, ReactElement, ReactNode } from 'react';
 
-interface IProps {
-  children: ReactElement | Element;
+interface IErrorBoundaryState {
+  hasError: boolean;
 }
 
-const ErrorBoundary = ({ children }: IProps) => {
-  const [hasError, setHasError] = useState('');
+interface IErrorBoundaryProp {
+  children: ReactNode | JSX.Element | ReactElement;
+}
 
-  useEffect(() => {
-    const errorHandler = (error: ErrorEvent) => {
-      setHasError(error.message);
-      console.error('Error occurred:', error);
+class ErrorBoundary extends Component<IErrorBoundaryProp, IErrorBoundaryState> {
+  constructor(props: IErrorBoundaryProp) {
+    super(props);
+    this.state = {
+      hasError: false,
     };
+  }
 
-    // Listen for unhandled errors in the component tree
-    window.addEventListener('error', errorHandler);
+  static getDerivedStateFromError() {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
+  }
 
-    // Cleanup function to remove the error handler
-    return () => {
-      window.removeEventListener('error', errorHandler);
-    };
-  }, []);
-
-  return <>
-    <h1>Error Catching Example</h1>
-    {hasError ? <div>{hasError}, This is a fallback UI</div> : children}
-  </>;
-};
+  render() {
+    return (
+      <div>
+        <h1>Error Boundary</h1>
+        {this.state.hasError ?
+          <div>This is a fallback UI</div> :
+          this.props.children
+        }
+      </div>
+    );
+  }
+}
 
 export default ErrorBoundary;

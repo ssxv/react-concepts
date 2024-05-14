@@ -1,14 +1,21 @@
-const ErrorThrowingComponenet: React.FC = () => {
+import { useEffect, useState } from "react";
+
+const ErrorThrowingComponent: React.FC = () => {
+  const [flag, setflag] = useState(false);
+
+  useEffect(() => {
+    if (flag) throw new Error('from ErrorThrowingComponent');
+  }, [flag]);
 
   return (
     <button
       onClick={() => {
-        throw new Error(`Error thrown`);
+        setflag(true);
       }}
     >
-      Click me to throw an error
+      Throw error from ErrorThrowingComponent
     </button>
   );
 };
 
-export default ErrorThrowingComponenet;
+export default ErrorThrowingComponent;
