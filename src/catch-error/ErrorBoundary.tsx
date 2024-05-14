@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactElement } from 'react';
 
-const ErrorBoundary = ({ children }: any) => {
+interface IProps {
+  children: ReactElement | Element;
+}
+
+const ErrorBoundary = ({ children }: IProps) => {
   const [hasError, setHasError] = useState('');
 
   useEffect(() => {
-    const errorHandler = (error: any) => {
-      // Update state to indicate that an error has occurred
+    const errorHandler = (error: ErrorEvent) => {
       setHasError(error.message);
-      // Log the error to an error reporting service
       console.error('Error occurred:', error);
     };
 
@@ -20,12 +22,10 @@ const ErrorBoundary = ({ children }: any) => {
     };
   }, []);
 
-  // If an error occurred, render a fallback UI
   if (hasError) {
     return <div>{hasError}</div>;
   }
 
-  // Otherwise, render the child components
   return <>{children}</>;
 };
 

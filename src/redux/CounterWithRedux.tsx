@@ -6,7 +6,7 @@ import { IAppState } from './store';
 // Define component props and Redux state props
 type Props = ConnectedProps<typeof connector>;
 
-const CounterWithRedux: React.FC<Props> = ({ count, increment, decrement }) => {
+const Counter: React.FC<Props> = ({ count, increment, decrement }) => {
   return (
     <div>
       <div>Counter with Redux</div>
@@ -34,5 +34,5 @@ const mapDispatchToProps = {
 
 // Connect component to Redux store
 const connector = connect(mapStateToProps, mapDispatchToProps);
-
-export default connector(CounterWithRedux);
+const CounterWithRedux = connector(Counter);
+export default CounterWithRedux;

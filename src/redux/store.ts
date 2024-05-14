@@ -4,6 +4,7 @@ import counterReducer, { ICounterState } from './counterReducer';
 export interface IAppState {
   counter: ICounterState;
 }
+
 const rootReducer = combineReducers({
   counter: counterReducer,
 });
