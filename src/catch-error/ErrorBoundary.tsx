@@ -22,11 +22,10 @@ const ErrorBoundary = ({ children }: IProps) => {
     };
   }, []);
 
-  if (hasError) {
-    return <div>{hasError}</div>;
-  }
-
-  return <>{children}</>;
+  return <>
+    <h1>Error Catching Example</h1>
+    {hasError ? <div>{hasError}, This is a fallback UI</div> : children}
+  </>;
 };
 
 export default ErrorBoundary;
