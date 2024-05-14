@@ -1,17 +1,15 @@
 import './App.css';
-import ErrorBoundary from './catch-error/ErrorBoundary';
-import ErrorThrowingComponenet from './catch-error/ErrorThrowingComponent';
-import ThemeSwitcher from './custom-hooks/ThemeToggle';
+import Tooltip from './pure-functions/Tooltip';
+import CounterWithRedux from './redux/CounterWithRedux';
+import TodosApp from './redux/Todos';
 
 function App() {
 
   return (
     <>
-      <ThemeSwitcher />
-
-      <ErrorBoundary>
-        <ErrorThrowingComponenet />
-      </ErrorBoundary>
+      <Tooltip text={"Hover over me"} hintText={"This is a tooltip"} />
+      <CounterWithRedux />
+      <TodosApp />
     </>
   );
 }

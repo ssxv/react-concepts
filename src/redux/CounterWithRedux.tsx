@@ -9,7 +9,7 @@ type Props = ConnectedProps<typeof connector>;
 const Counter: React.FC<Props> = ({ count, increment, decrement }) => {
   return (
     <div>
-      <div>Counter with Redux</div>
+      <h1>Counter with Redux</h1>
       <button disabled={count <= 0} onClick={decrement}>
         -
       </button>
