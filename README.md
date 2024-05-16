@@ -1,30 +1,36 @@
-# React + TypeScript + Vite
+# React Design Patterns
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Designs Patterns are proven methods to solve common issues that a React developer might experience.
 
-Currently, two official plugins are available:
+## Benefits of Using Design Patterns in Reactjs?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Provides Structure for Collaborative Development
+2. Enhances Code Organization
+3. Encourages Reusability
+4. Promotes Maintainability
+5. Helps in Performance Optimization
 
-## Expanding the ESLint configuration
+## Leading Reactjs Design Patterns
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. The HOC (High Order Component) Pattern
 
-- Configure the top-level `parserOptions` property like this:
+    A JavaScript function that accepts a component as an argument. After inserting or putting additional data and functionality into the component, it then returns another component.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+2. The Provider Pattern
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+    The provider pattern uses a provider component that stores global data and distributes it through the application's component tree to consumers or custom hooks.
+
+3. Presentational and Container Component Patterns
+
+    Presentational and Container patterns enable us to distinguish between different concerns, such as complicated stateful logic, and other features of a component.
+
+    Presentational Components – These stateless functional elements care about relating data to the display.
+
+    Container Components – These components are known to keep track of their internal state and life cycle. They contain presentational details and data-fetching logic.
+
+4. The Hooks Pattern
+
+5. Render Prop Pattern
+
+    This pattern involves passing a function as a prop to a component, allowing the component to render dynamic content.
+

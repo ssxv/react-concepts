@@ -1,17 +1,19 @@
 import './App.css';
 import ErrorBoundary from './catch-error/ErrorBoundary';
 import ErrorThrowingComponent from './catch-error/ErrorThrowingComponent';
-import Tooltip from './pure-functions/Tooltip';
-import CounterWithRedux from './redux/CounterWithRedux';
-import TodosApp from './redux/Todos';
+import AuthProvider from './custom-hooks/Auth';
+import AuthUserComponent from './custom-hooks/Component';
 
 function App() {
 
   return (
     <>
-      <Tooltip text={"Hover over me"} hintText={"This is a tooltip"} />
-      <CounterWithRedux />
-      <TodosApp />
+      {/* <WrappedComponent age={45} address={"Pune, MH, India"} zip={"411045"} /> */}
+
+      <AuthProvider>
+        <AuthUserComponent />
+      </AuthProvider>
+
       <ErrorBoundary>
         <ErrorThrowingComponent />
       </ErrorBoundary>
