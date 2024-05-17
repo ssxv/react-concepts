@@ -1,6 +1,7 @@
 import './App.css';
 import ErrorBoundary from './catch-error/ErrorBoundary';
 import ErrorThrowingComponent from './catch-error/ErrorThrowingComponent';
+import ClassComponentCounter from './class-component/ClassComponentCounter';
 import AuthProvider from './custom-hooks/Auth';
 import AuthUserComponent from './custom-hooks/Component';
 import ReduxCounter from './redux/ReduxCounter';
@@ -11,7 +12,7 @@ function App() {
 
   return (
     <>
-      {/* <WrappedComponent age={45} address={"Pune, MH, India"} zip={"411045"} /> */}
+      <ClassComponentCounter />
 
       <AuthProvider>
         <AuthUserComponent />
