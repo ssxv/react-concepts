@@ -1,40 +1,34 @@
 import { useReducer } from 'react';
 
-interface ICounterState {
-  count: number;
-}
 interface ICounterAction {
   type: string;
 }
-const initialState: ICounterState = {
-  count: 0,
-};
 
-const reducer = (state: ICounterState, action: ICounterAction) => {
+const reducer = (count: number = 2, action: ICounterAction) => {
   switch (action.type) {
     case 'inc':
-      return { count: state.count + 1 };
+      return count + 1;
     case 'dec':
-      return { count: state.count - 1 };
+      return count - 1;
     default:
-      return state;
+      return count;
   }
 };
 
 const CounterWithUseReducer = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [count, dispatch] = useReducer(reducer, 2);
   return (
     <div>
-      <div>Counter with useReducer</div>
+      <h1>Counter with useReducer</h1>
       <button
-        disabled={state.count <= 0}
+        disabled={count <= 0}
         onClick={() => dispatch({ type: 'dec' })}
       >
         -
       </button>
-      <span style={{ margin: '10px' }}>{state.count}</span>
+      <span style={{ margin: '10px' }}>{count}</span>
       <button
-        disabled={state.count >= 5}
+        disabled={count >= 5}
         onClick={() => dispatch({ type: 'inc' })}
       >
         +

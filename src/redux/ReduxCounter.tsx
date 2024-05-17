@@ -32,9 +32,17 @@ const Counter: React.FC<Props> = ({ count, increment, decrement }) => {
   return (
     <div>
       <h1>Redux Counter</h1>
-      <button onClick={decrement}>-</button>
+      <button
+        disabled={count <= 0}
+        onClick={decrement}>
+        -
+      </button>
       <span>{count}</span>
-      <button onClick={increment}>+</button>
+      <button
+        disabled={count >= 5}
+        onClick={increment}>
+        +
+      </button>
     </div>
   );
 };
