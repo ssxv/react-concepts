@@ -1,6 +1,6 @@
 import { Todo, TodosAction } from "./todosActions";
 
-export const todosReducer = (todos: Todo[] = [], action: TodosAction) => {
+export const todosReducer = (todos: Todo[] = [], action: TodosAction): Todo[] => {
     switch (action.type) {
         case "add": {
             const todo: Todo = action.payload;

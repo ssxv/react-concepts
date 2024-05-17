@@ -7,7 +7,7 @@ import { Action } from 'redux';
 2. create a store createStore()
 3. wrap App with Provider store={store}
  */
-export const counterReducer = (count = 0, action: Action) => {
+export const counterReducer = (count = 0, action: Action): number => {
   switch (action.type) {
     case 'inc':
       return count + 1;
