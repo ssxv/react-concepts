@@ -1,5 +1,5 @@
 import { ConnectedProps, connect } from "react-redux"
-import { ITodo, addTodo } from "./todosActions";
+import { Todo, addTodo } from "./todosActions";
 
 type Props = ConnectedProps<typeof connector>;
 
@@ -9,7 +9,7 @@ const TodoCreator: React.FC<Props> = ({ addTodo }) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const data: any = Object.fromEntries(formData);
-        const todo: ITodo = {
+        const todo: Todo = {
             id: new Date().getTime().toString(),
             title: data.title,
         }

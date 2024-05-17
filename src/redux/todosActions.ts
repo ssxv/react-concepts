@@ -1,21 +1,22 @@
-export interface ITodo {
+import { Action } from "redux";
+
+export interface Todo {
     id: string;
     title: string;
     done?: boolean;
 }
-export interface ITodosAction {
-    type: string;
-    payload: ITodo;
+export interface TodosAction extends Action {
+    payload: Todo;
 }
 
-export const addTodo = (todo: ITodo): ITodosAction => {
+export const addTodo = (todo: Todo): TodosAction => {
     return {
         type: "add",
         payload: todo,
     }
 }
 
-export const todoDone = (todo: ITodo): ITodosAction => {
+export const todoDone = (todo: Todo): TodosAction => {
     return {
         type: "done",
         payload: todo,

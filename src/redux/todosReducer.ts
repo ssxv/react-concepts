@@ -1,29 +1,20 @@
-import { ITodo, ITodosAction } from "./todosActions";
+import { Todo, TodosAction } from "./todosActions";
 
-export interface ITodosState {
-    todos: ITodo[]
-}
-
-const initialTodosState: ITodosState = {
-    todos: []
-}
-
-export const todosReducer = (state = initialTodosState, action: ITodosAction) => {
+export const todosReducer = (todos: Todo[] = [], action: TodosAction) => {
     switch (action.type) {
         case "add": {
-            const todo = action.payload;
-            const todos = state.todos;
+            const todo: Todo = action.payload;
             todos.push(todo);
-            return { ...state, todos: [...todos] };
+            return [...todos];
         }
         case "done": {
-            const todo = state.todos.find(t => t.id === action.payload.id);
+            const todo = todos.find(t => t.id === action.payload.id);
             if (todo) {
                 todo.done = true;
-            }           
-            return { ...state, todos: [...state.todos] };
+            }
+            return [...todos];
         }
         default:
-            return state;
+            return todos;
     }
 }

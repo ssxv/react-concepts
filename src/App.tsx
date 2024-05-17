@@ -3,6 +3,8 @@ import ErrorBoundary from './catch-error/ErrorBoundary';
 import ErrorThrowingComponent from './catch-error/ErrorThrowingComponent';
 import AuthProvider from './custom-hooks/Auth';
 import AuthUserComponent from './custom-hooks/Component';
+import ReduxCounter from './redux/ReduxCounter';
+import TodosApp from './redux/Todos';
 
 function App() {
 
@@ -17,6 +19,10 @@ function App() {
       <ErrorBoundary>
         <ErrorThrowingComponent />
       </ErrorBoundary>
+
+      <ReduxCounter />
+
+      <TodosApp />
     </>
   );
 }

@@ -1,12 +1,12 @@
 import { ConnectedProps, connect } from "react-redux";
-import { IAppState } from "./store";
-import { ITodo, todoDone } from "./todosActions";
+import { Store } from "./store";
+import { Todo, todoDone } from "./todosActions";
 
 type Props = ConnectedProps<typeof connector>
 
 const TodoList: React.FC<Props> = ({ todos, todoDone }) => {
 
-    const showTodo = (todo: ITodo) => {
+    const showTodo = (todo: Todo) => {
         return <div>
             <button disabled={todo.done} type="button" onClick={() => todoDone(todo)}>
                 {todo.done ? 'done' : 'mark done'}
@@ -24,8 +24,8 @@ const TodoList: React.FC<Props> = ({ todos, todoDone }) => {
     </>;
 }
 
-const mapStateToProps = (state: IAppState) => ({
-    todos: state.todos.todos,
+const mapStateToProps = (state: Store) => ({
+    todos: state.todos,
 });
 
 const mapDispatchToProps = {
