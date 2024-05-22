@@ -1,10 +1,11 @@
 import { useState } from 'react';
 
-const Counter = () => {
+const UseStateCounter = () => {
   const [count, setCount] = useState(0);
 
   return (
-    <div>
+    <>
+      <h1>This counter uses useState</h1>
       <button
         disabled={count <= 0}
         onClick={() => setCount((count) => count - 1)}
@@ -18,8 +19,8 @@ const Counter = () => {
       >
         +
       </button>
-    </div>
+    </>
   );
 };
 
-export default Counter;
+export default UseStateCounter;

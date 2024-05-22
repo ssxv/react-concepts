@@ -1,4 +1,4 @@
-import { ConnectedProps, connect } from 'react-redux';
+import { ConnectedProps, connect, useDispatch, useSelector } from 'react-redux';
 import { Store } from './store';
 import { Action } from 'redux';
 
@@ -56,3 +56,25 @@ const mapDispatchToProps = { increment, decrement };
 const connector = connect(mapStateToProps, mapDispatchToProps);
 const ReduxCounter = connector(Counter);
 export default ReduxCounter;
+
+//TODO: useSelector, useDispatch, ReduxJS toolkit
+export const ReduxCounterWithReduxHooks = () => {
+  const count = useSelector((state: Store) => state.count);
+  const dispatch = useDispatch();
+  return (
+    <div>
+      <h1>Redux Counter with Redux Hooks</h1>
+      <button
+        disabled={count <= 0}
+        onClick={() => dispatch(decrement())}>
+        -
+      </button>
+      <span>{count}</span>
+      <button
+        disabled={count >= 5}
+        onClick={() => dispatch(increment())}>
+        +
+      </button>
+    </div>
+  );
+}
