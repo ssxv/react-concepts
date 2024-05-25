@@ -1,5 +1,5 @@
 import { ConnectedProps, connect } from "react-redux";
-import { Store } from "./store";
+import { Store } from "./redux-store";
 import { Todo, todoDone } from "./todosActions";
 
 type Props = ConnectedProps<typeof connector>

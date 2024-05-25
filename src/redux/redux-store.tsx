@@ -12,6 +12,6 @@ export interface Store {
   count: number;
   todos: Todo[];
 }
-const store = createStore(rootReducer);
+const reduxStore = createStore(rootReducer);
 
-export default store;
+export default reduxStore;

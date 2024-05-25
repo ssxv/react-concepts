@@ -1,6 +1,7 @@
 import { ConnectedProps, connect, useDispatch, useSelector } from 'react-redux';
-import { Store } from './store';
+import { Store } from './redux-store';
 import { Action } from 'redux';
+import { createSlice } from '@reduxjs/toolkit';
 
 /*
 1. create a reducer 
@@ -57,7 +58,7 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 const ReduxCounter = connector(Counter);
 export default ReduxCounter;
 
-//TODO: useSelector, useDispatch, ReduxJS toolkit
+// useSelector, useDispatch
 export const ReduxCounterWithReduxHooks = () => {
   const count = useSelector((state: Store) => state.count);
   const dispatch = useDispatch();
@@ -73,6 +74,46 @@ export const ReduxCounterWithReduxHooks = () => {
       <button
         disabled={count >= 5}
         onClick={() => dispatch(increment())}>
+        +
+      </button>
+    </div>
+  );
+}
+
+// ReduxJS toolkit
+/*
+1. create store with configureStore with empty reducer: {}
+2. wrap app with a Provider with store
+3. create a slice using createSlice: with name, initialState and reducers with action functions { actionname: actionfunction }
+4. createSlice returns a slice with reducers and actions
+5. add createSlice.reducer to reducer in store against a key
+6. get value in component using useSelector state.key
+7. get actions from slice.actions
+ */
+export const counterSlice = createSlice({
+  name: 'counter',
+  initialState: 0,
+  reducers: {
+    increment: (count) => count + 1,
+    decrement: (count) => count - 1,
+  }
+});
+
+export const ReduxToolkitCounterWithReduxHooks = () => {
+  const count = useSelector((state: Store) => state.count);
+  const dispatch = useDispatch();
+  return (
+    <div>
+      <h1>Redux Toolkit Counter</h1>
+      <button
+        disabled={count <= 0}
+        onClick={() => dispatch(counterSlice.actions.decrement())}>
+        -
+      </button>
+      <span>{count}</span>
+      <button
+        disabled={count >= 5}
+        onClick={() => dispatch(counterSlice.actions.increment())}>
         +
       </button>
     </div>
