@@ -17,7 +17,7 @@ class ErrorBoundary extends Component<IErrorBoundaryProp, IErrorBoundaryState> {
   }
 
   static getDerivedStateFromError() {
-    // Update state so the next render will show the fallback UI.
+    // return the updated state, no need to call setState
     return { hasError: true };
   }
 
