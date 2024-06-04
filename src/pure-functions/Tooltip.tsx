@@ -14,7 +14,7 @@ const Tooltip: React.FC<Props> = ({ text, hintText, width }) => {
   }
   return (
     <span className="tooltip">
-      {text}
+      <h1>{text}</h1>
       <span className="tooltiptext" style={style}>{hintText}</span>
     </span>
   );
