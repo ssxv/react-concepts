@@ -1,6 +1,6 @@
-const Login: React.FC<any> = () => {
+const Login = () => {
   const loginAction = (e) => {
-    const formData = new FormData(e.target as HTMLFormElement);
+    const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
     alert(JSON.stringify(data));
   };

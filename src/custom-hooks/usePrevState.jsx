@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 // custom hook for storing prev state
 // const [state, prevState, setState] = usePrevState(initState);
 
@@ -14,11 +13,11 @@
 // prevState is 0
 import { useState } from "react";
 
-const usePrevState = (initialValue: any) => {
+const usePrevState = (initialValue) => {
     const [currentState, setCurrentState] = useState(initialValue);
     const [previousState, setPreviousState] = useState(undefined);
 
-    return [currentState, previousState, (newState: any) => {
+    return [currentState, previousState, (newState) => {
         setPreviousState(currentState);
         setCurrentState(newState);
     }];

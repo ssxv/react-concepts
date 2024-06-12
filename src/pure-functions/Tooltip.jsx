@@ -1,11 +1,6 @@
-interface Props {
-  text: string;
-  hintText: string;
-  width?: number;
-}
-
-const Tooltip: React.FC<Props> = ({ text, hintText, width }) => {
-  const style: any = {
+/* eslint-disable react/prop-types */
+const Tooltip = ({ text, hintText, width }) => {
+  const style = {
     marginLeft: -50
   };
   if (width) {

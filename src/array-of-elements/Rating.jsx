@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 
 const Rating = ({ initRating = 0, maxRating, onRatingChange }) => {
@@ -10,7 +11,7 @@ const Rating = ({ initRating = 0, maxRating, onRatingChange }) => {
     backgroundColor: '#888888',
   };
   const updateRating = (i) => setRating(i);
-  const resetRating = (i) => setRating(initRating);
+  const resetRating = () => setRating(initRating);
   const showRatings = () => {
     const ratings = [];
     for (let i = 1; i <= maxRating; i++) {

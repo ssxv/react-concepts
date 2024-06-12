@@ -1,7 +1,7 @@
-import useHover from '../customHook/useHover';
+import useHover from '../custom-hooks/useHover';
 import wrap from './wrap';
 
-export const Person = (props) => {
+export const FunctionalComp = (props) => {
   const [ref, hover] = useHover();
   return (
     <div ref={ref}>
@@ -12,5 +12,5 @@ export const Person = (props) => {
   );
 };
 
-const WrappedPerson = wrap(Person);
-export default WrappedPerson;
+const WrappedFunctionalComp = wrap(FunctionalComp);
+export default WrappedFunctionalComp;
